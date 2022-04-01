@@ -46,9 +46,10 @@ main {
     width: 300px;
     background-color: var(--card-dark-blue);
     padding: 1.2rem;
-    border-radius: 1.2rem;
+    border-radius: 1rem;
 }
 .card-img {
+    position: relative;
     margin-bottom: 1.5rem;
     height: 280px;
 }
@@ -60,7 +61,7 @@ main {
     border-radius: .4rem;
 }
 .card-info {
-    margin-bottom: 1rem;
+    margin-bottom: .4rem;
 }
 .card-heading {
     color: var(--white);
@@ -132,6 +133,7 @@ main {
 /* Footer Section Styles */
 footer {
     position: absolute;
+    width: 100%;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
@@ -142,4 +144,63 @@ footer {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+/* Active States */
+.card-image-overlay {
+    position: absolute;
+    background-color: var(--cyan);
+    color: var(--white);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: .4rem;
+    opacity: 0;
+    transition: .5s ease;
+}
+.card-img:hover .card-image-overlay {
+    opacity: .5;
+}
+.card-view-icon {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 100px;
+    opacity: 0;
+    transition: .5s ease;
+}
+.card-img:hover .card-view-icon{
+    opacity: 1;
+}
+.card-img:hover,
+.card-heading h2:hover,
+.creator-info p span:hover {
+    cursor: pointer;
+}
+.card-heading h2:hover,
+.creator-info p span:hover {
+    color: var(--cyan);
+    transition: .5s ease;
+}
+
+/* Mobile Layout */
+@media only screen and (max-width: 375px){
+    .card-img {
+        height: auto;
+    }
+    .card-heading h2 {
+        font-size: 1.3rem;
+    }
+    .card-description p {
+        font-size: .95rem;
+    }
+    .card-info {
+        margin-bottom: .2rem;
+    }
 }
